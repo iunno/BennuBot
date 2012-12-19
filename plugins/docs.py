@@ -7,15 +7,15 @@ def docs_locate():
     res = urllib2.urlopen(req)
     data = res.read()
     data = data[data.index('<title>')+7:data.index('</title>')]
-    return data, res.geturl()
+    return data.decode('utf-8'), res.geturl()
 
 def docs_get(inMSG):
     splitMSG = inMSG[0].split()
-    if len(splitMSG0 == 1:
-        name, url = docs_locate('')
-        sendMSG(url, inMSG[1], inMSG[2], inMSG[3])
+    if len(splitMSG) == 1:
+        name, url = docs_locate()
+        return name + ' - ' + url
     else:
-    sendMSG("Usage: "+funcPrefix"docs", inMSG[1], inMSG[2], inMSG[3])
+        sendMSG("Usage: "+funcPrefix+"docs", inMSG[1], inMSG[2], inMSG[3])
 
 def load():
     return {'docs':docs_get}
